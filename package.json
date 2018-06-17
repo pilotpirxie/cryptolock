@@ -1,7 +1,7 @@
 {
   "name": "cryptolock",
-  "version": "1.0.0",
-  "description": "A simple library for an encryption and decryption of files",
+  "version": "1.0.2",
+  "description": "A simple library for an encryption and decryption files",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -27,6 +27,7 @@
     "url": "https://github.com/pilotpirxie/cryptolock/issues"
   },
   "homepage": "https://github.com/pilotpirxie/cryptolock#readme",
+  "dependencies": {},
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0"
