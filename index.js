@@ -21,9 +21,9 @@ class Cryptolock {
      */
     encrypt(inputFile, outputFile = 'out.dat', passphrase) {
         try {
-            let text = fs.readFileSync(inputFile);
+            let fileData = fs.readFileSync(inputFile);
             const cipher = crypto.createCipher(this.algorithm, passphrase);
-            const encrypted = Buffer.concat([cipher.update(Buffer.from(text, "utf8")), cipher.final()]);
+            const encrypted = Buffer.concat([cipher.update(Buffer.from(fileData, "utf8")), cipher.final()]);
             fs.writeFileSync(outputFile, encrypted);
             return { message: "Encrypted!" };
         } catch (exception) {
@@ -40,9 +40,9 @@ class Cryptolock {
      */
     decrypt(inputFile = 'out.dat', outputFile = 'decoded.dat', passphrase) {
         try {
-            let text = fs.readFileSync(inputFile);
+            let fileData = fs.readFileSync(inputFile);
             const decipher = crypto.createDecipher(this.algorithm, passphrase);
-            const decrypted = Buffer.concat([decipher.update(text), decipher.final()]);
+            const decrypted = Buffer.concat([decipher.update(fileData), decipher.final()]);
             fs.writeFileSync(outputFile, decrypted);
             return { message: "Decrypted!" };
         } catch (exception) {
